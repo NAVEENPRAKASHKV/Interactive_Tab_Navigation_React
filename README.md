@@ -1,70 +1,103 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React NavigationTab Component
 
-## Available Scripts
+A simple React component that renders a navigation tab interface with dynamic content based on the selected tab. This component is designed to display three different sections: **Why React?**, **Core Features**, and **Related Resources**, with content switching based on the active tab.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Dynamic Tab Navigation**: Each tab dynamically loads its corresponding content.
+- **React Hooks**: Uses `useState` for managing active tab state.
+- **Simple UI**: Displays tab content with a list of items for each section.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image](https://github.com/user-attachments/assets/92b1abff-1a6d-4dad-97a7-07152a6e1017)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/repo-name.git
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate into the project directory:
+   ```bash
+   cd repo-name
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Run the application:
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+## Component Breakdown
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `NavigationTab`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This component consists of:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Header**: Displays a React logo and a title.
+- **Tabs**: Three buttons, each representing a section (Why React?, Core Features, Related Resources).
+- **Dynamic Content**: Content updates based on the selected tab.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Props
 
-## Learn More
+This component imports `content` from a constants file and renders its data based on the active tab.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+const data = content;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Example Content Data
 
-### Code Splitting
+The content data should be structured as an array of arrays, where each array corresponds to a tab's content.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```js
+export const content = [
+  ["Reason 1", "Reason 2", "Reason 3"], // Content for "Why React?"
+  ["Feature 1", "Feature 2", "Feature 3"], // Content for "Core Features"
+  ["Resource 1", "Resource 2", "Resource 3"], // Content for "Related Resources"
+];
+```
 
-### Analyzing the Bundle Size
+### Component Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To use this component in your project, import and render it as follows:
 
-### Making a Progressive Web App
+```js
+import React from "react";
+import NavigationTab from "./components/NavigationTab";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+function App() {
+  return (
+    <div className="App">
+      <NavigationTab />
+    </div>
+  );
+}
 
-### Advanced Configuration
+export default App;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Project Structure
 
-### Deployment
+```
+|-- public/
+|   |-- react-logo-xs.png
+|
+|-- src/
+|   |-- components/
+|       |-- NavigationTab.js
+|   |-- utils/
+|       |-- constats.js
+|
+|-- README.md
+|-- package.json
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
