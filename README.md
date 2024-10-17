@@ -46,13 +46,7 @@ This component consists of:
 - **Tabs**: Three buttons, each representing a section (Why React?, Core Features, Related Resources).
 - **Dynamic Content**: Content updates based on the selected tab.
 
-### Props
 
-This component imports `content` from a constants file and renders its data based on the active tab.
-
-```js
-const data = content;
-```
 
 ### Example Content Data
 
